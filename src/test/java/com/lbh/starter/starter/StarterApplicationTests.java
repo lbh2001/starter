@@ -9,12 +9,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 class StarterApplicationTests {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    RedisTemplate redisTemplate;
 
     @Test
     void contextLoads() {
-        redisTemplate.opsForValue().set("k1","v1");
-        System.out.println(redisTemplate.opsForValue().get("k1"));
+
+        redisTemplate.opsForValue().set("name","lbh");
+        System.out.println(redisTemplate.opsForValue().get("name"));
 
 
     }

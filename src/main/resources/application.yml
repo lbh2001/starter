@@ -17,7 +17,7 @@ spring:
     timeout: 15000
     lettuce:
       pool:
-        max-active: 300
+        max-active: 1000
         max-idle: 100
         max-wait: -1ms
 #   mybatis

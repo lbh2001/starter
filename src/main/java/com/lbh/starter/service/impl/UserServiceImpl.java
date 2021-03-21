@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private Usermapper usermapper;
 
     @Override
-    public ResponseResult<TokenPO> register(User user, String verifyCode) {
+    public ResponseResult<String> register(User user, String verifyCode) {
         return null;
     }
 }

@@ -16,7 +16,7 @@ public interface UserService {
      * @param verifyCode
      * @return
      */
-    ResponseResult<TokenPO> register(User user, String verifyCode);
+    ResponseResult<String> register(User user, String verifyCode);
 
 
 }
