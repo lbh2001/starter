@@ -1,4 +1,4 @@
-package com.lbh.starter.Utils.component;
+package com.lbh.starter.utils.component;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

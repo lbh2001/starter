@@ -5,7 +5,7 @@ package com.lbh.starter.exception;
  * @Date 2021/3/20
  */
 
-import com.lbh.starter.Utils.ResponseResult;
+import com.lbh.starter.utils.ResponseResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

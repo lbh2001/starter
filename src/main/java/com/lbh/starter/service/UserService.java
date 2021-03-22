@@ -1,7 +1,6 @@
 package com.lbh.starter.service;
 
-import com.lbh.starter.Utils.ResponseResult;
-import com.lbh.starter.pojo.PO.TokenPO;
+import com.lbh.starter.utils.ResponseResult;
 import com.lbh.starter.pojo.User;
 
 /**

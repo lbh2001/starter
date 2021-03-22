@@ -1,6 +1,5 @@
 package com.lbh.starter.mapper;
 
-import com.lbh.starter.Utils.ResponseResult;
 import com.lbh.starter.pojo.User;
 
 /**

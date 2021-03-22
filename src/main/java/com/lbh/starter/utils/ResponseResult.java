@@ -1,4 +1,4 @@
-package com.lbh.starter.Utils;
+package com.lbh.starter.utils;
 
 import com.lbh.starter.enums.ResponseEnum;
 import lombok.AllArgsConstructor;

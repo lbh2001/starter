@@ -1,8 +1,7 @@
 package com.lbh.starter.service.impl;
 
-import com.lbh.starter.Utils.ResponseResult;
+import com.lbh.starter.utils.ResponseResult;
 import com.lbh.starter.mapper.Usermapper;
-import com.lbh.starter.pojo.PO.TokenPO;
 import com.lbh.starter.pojo.User;
 import com.lbh.starter.service.UserService;
 import org.springframework.stereotype.Service;
