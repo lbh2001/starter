@@ -1,5 +1,6 @@
 package com.lbh.starter.starter;
 
+import com.lbh.starter.utils.component.VerifyCodeUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +15,7 @@ class StarterApplicationTests {
     @Test
     void contextLoads() {
 
-        redisTemplate.opsForValue().set("name","lbh");
-        System.out.println(redisTemplate.opsForValue().get("name"));
+        System.out.println(VerifyCodeUtils.getVerifyCode());
 
 
     }
