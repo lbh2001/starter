@@ -1,20 +1,20 @@
 package com.lbh.starter.config;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import java.time.Duration;
+
 /**
- * RedisTemplate序列化
+ * RedisTemplate和RedisManager的序列化
  *
  * @Author lbh
  * @Date 2021/3/21
@@ -23,6 +23,38 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
+    /**
+     * 缓存管理器
+     * @param redisConnectionFactory
+     * @return
+     */
+    @Bean
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory){
+        //配置
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+                //设置缓存默认过期时间为30分钟
+                .entryTtl(Duration.ofMinutes(30))
+                //key采用String序列化方式
+                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
+                //value采用Json序列化方式
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()))
+                .disableCachingNullValues();
+
+        //根据配置创建RedisCacheManager
+        RedisCacheManager redisCacheManager = RedisCacheManager.builder(redisConnectionFactory)
+                .cacheDefaults(config)
+                .transactionAware()
+                .build();
+
+        return redisCacheManager;
+    }
+
+
+    /**
+     * RedisTemplate序列化
+     * @param redisConnectionFactory
+     * @return
+     */
     @Bean
     public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
         //创建RedisTemplate
