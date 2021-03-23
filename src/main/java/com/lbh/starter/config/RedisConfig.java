@@ -56,7 +56,7 @@ public class RedisConfig {
      * @return
      */
     @Bean
-    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public static RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
         //创建RedisTemplate
         RedisTemplate<String,Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
