@@ -6,8 +6,15 @@ package com.lbh.starter.enums;
  */
 public enum ResponseEnum {
     SUCCESS(1,"成功"),
-    FAIL(0,"失败")
+    FAIL(0,"失败"),
+
+    //用户模块状态码
+    VERIFY_CODE_ERROR(1000,"验证码错误"),
+    USER_EXISTS(1001,"用户已存在"),
+    PASSWORD_ERROR(1002,"密码错误")
     ;
+
+
 
     /**
      * 状态码

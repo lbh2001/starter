@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lbh.starter.mapper.Usermapper">
-    <cache type="RedisCache"/>
+<mapper namespace="com.lbh.starter.mapper.UserMapper">
+    <cache type="com.lbh.starter.cache.RedisCache"/>
 
     <resultMap id="BaseResultMap" type="com.lbh.starter.pojo.User">
         <id column="user_id" jdbcType="INTEGER" property="userId"/>
@@ -67,6 +67,11 @@
             now(),
         </trim>
     </insert>
+
+    <select id="selectByUsername" resultMap="com.lbh.starter.pojo.User" parameterType="java.lang.String">
+        select * from starter.user
+        where username = #{username}
+    </select>
 
 
 </mapper>
